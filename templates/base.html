@@ -1,0 +1,5 @@
+{% load static %}
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{% block title %}FMS 2020{% endblock %}</title><link rel="stylesheet" href="{% static 'batallas/css/style.css' %}"></head><body>
+<header class="topbar"><a class="brand" href="{% url 'inicio' %}"><span class="mark">F</span><span>FMS <b>2020</b><small>PANEL DE VOTACIÓN</small></span></a><nav><a href="{% url 'inicio' %}">Inicio</a><a href="{% url 'competidores' %}">Competidores</a><a href="{% url 'nueva_batalla' %}">Nueva batalla</a></nav></header>
+<main class="container">{% if messages %}{% for message in messages %}<div class="message">{{ message }}</div>{% endfor %}{% endif %}{% block content %}{% endblock %}</main>
+</body></html>

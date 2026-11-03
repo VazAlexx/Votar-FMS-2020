@@ -1,0 +1,4 @@
+{% extends 'base.html' %}{% block content %}
+<section class="hero"><p class="eyebrow">PANEL DE CONTROL · FMS 2020</p><h1>Prepará y votá tu <em>batalla.</em></h1><p>Elegí la FMS, seleccioná los dos MC y abrí el tablero de votación en una ventana aparte.</p><div class="actions"><a class="btn primary" href="{% url 'nueva_batalla' %}">＋ Nueva batalla</a><a class="btn" href="{% url 'competidores' %}">Ver competidores</a></div></section>
+<section class="grid cards"><div class="card"><h3>Ligas</h3>{% for liga in ligas %}<a class="liga-link {{ liga.slug }}" href="{% url 'tabla_general' liga.id %}">{{ liga.nombre }} <span>Ver tabla →</span></a>{% endfor %}</div><div class="card"><h3>Batallas recientes</h3>{% for b in batallas %}<p><a href="{% url 'detalle_batalla' b.id %}">{{ b.mc_a }} vs {{ b.mc_b }}</a> · {{ b.liga.nombre }}</p>{% empty %}<p>Todavía no hay batallas.</p>{% endfor %}</div></section>
+{% endblock %}
